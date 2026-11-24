@@ -1,0 +1,46 @@
+<div class="auth">
+  <aside class="auth-lado">
+    <div class="marca">🍽️ Mis Reseñas</div>
+    <h1>Guarda tus experiencias en cada restaurante</h1>
+    <p>Califica, recuerda y compara los lugares que has visitado. Tus reseñas son privadas: solo tú puedes verlas.</p>
+    <ul>
+      <li>⭐ Califica de 1 a 5 estrellas</li>
+      <li>📅 Registra la fecha de tu visita</li>
+      <li>🔒 Acceso seguro con tu cuenta</li>
+    </ul>
+  </aside>
+
+  <main class="auth-form">
+    <div class="auth-caja">
+      <h2>Iniciar sesión</h2>
+      <p class="texto-suave">Bienvenido de nuevo, ingresa tus datos.</p>
+
+      <form (ngSubmit)="iniciarSesion()" novalidate>
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" type="email" name="correo" [(ngModel)]="correo" placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+        </div>
+
+        <div class="campo">
+          <label for="password">Contraseña</label>
+          <div class="input-con-boton">
+            <input id="password" [type]="verPassword ? 'text' : 'password'" name="password" [(ngModel)]="password" placeholder="••••••" autocomplete="current-password" />
+            <button type="button" class="btn-link" (click)="verPassword = !verPassword">
+              {{ verPassword ? 'Ocultar' : 'Mostrar' }}
+            </button>
+          </div>
+        </div>
+
+        @if (error) {
+          <div class="alerta alerta-error">{{ error }}</div>
+        }
+
+        <button type="submit" class="btn btn-primario btn-bloque" [disabled]="cargando">
+          {{ cargando ? 'Ingresando...' : 'Ingresar' }}
+        </button>
+      </form>
+
+      <p class="auth-pie">¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a></p>
+    </div>
+  </main>
+</div>

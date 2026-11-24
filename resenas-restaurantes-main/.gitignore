@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Carpetas del entorno de desarrollo / compilacion
+.angular/
+dist/
+.vscode/
+.idea/
+.claude/
+
+# Variables de entorno
+.env
+
+# Otros
+npm-debug.log*
+.DS_Store
